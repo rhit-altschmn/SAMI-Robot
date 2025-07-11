@@ -102,7 +102,31 @@ class AudioManager:
 
         if audio_clip.get("IsGroup","False") == "True":
             # then handle it like a group of audio options rather than a standalone clip
-            return False
+            group_dir = os.path.join(self._audio_folder_path, clip_name)
+            if not os.path.isdir(group_dir):
+                print(f"Audio group directory '{group_dir}' not found.")
+                return False
+            
+            group_clips = [
+            f for f in os.listdir(group_dir)
+            if f.endswith(self._audio_file_encoding) and f"_{self._voice_type}" in f
+        ]
+            if not group_clips:
+                print(f"No matching audio clips found in group '{clip_name}'.")
+                return False
+            selected_clip = self.rng.choice(group_clips)
+            full_path = os.path.join(group_dir, selected_clip)
+            self._last_audio_clip = full_path
+            print(f"Playing audio group clip: {full_path}")
+
+            if async_:
+                thread = threading.Thread(target=self._play_audio, args=(full_path,))
+                thread.start()
+            else:
+                self._play_audio(full_path)
+
+            return True
+            
         else:
             # If the clip isn't part of a group, then send it as a standalone audio clip with a probability
             return self.send_audio_with_probability(clip_name, probability, async_, isvoice, encoding)

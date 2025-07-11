@@ -2,7 +2,14 @@
     "Name": "Concert",
     "Keyframes": [
       {
-        "HasJoints": "True",
+        "HasAudio": "True",
+        "AudioClip": {
+            "ClipName": "", 
+            "IsGroup": "True",
+            "Async": "True",
+            "Probability": 1.0
+        },
+                "HasJoints": "True",
         "Expression": "Happy",
         "WaitTime": 1500,
         "JointMoveTime": 10,
