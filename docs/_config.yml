@@ -11,7 +11,13 @@ remote_theme: zendesk/jekyll-theme-zendesk-garden@main
 
 sidebar:
   - getting-started
-  - label: Building and Testing the Robot
+  - label: Bill of Materials
+    children:
+      - bom
+      - custom-pcbs
+      - custom-cables
+      - custom-3d
+  - label: Building the Robot
     children:
       - assembly-intro
       - part-fabrication
@@ -21,6 +27,8 @@ sidebar:
       - assembly-torso
       - assembly-arms
       - assembly-final
+  - label: Testing the Robot
+    children:
       - software-setup
   - label: Software Documentation
     children:
@@ -30,3 +38,4 @@ sidebar:
   - label: Hardware Documentation
     children:
       - angle-ranges
+      - hardware-modification

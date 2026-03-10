@@ -3,7 +3,7 @@ layout: default
 id: assembly-intro
 title: Overview and Overall Assembly Information
 sidebar_label: Assembly Overview
-previous_page: getting-started
+previous_page: custom-3d
 next_page: part-fabrication
 ---
 # Overview of the Robot Assembly

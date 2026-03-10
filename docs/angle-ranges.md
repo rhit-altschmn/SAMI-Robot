@@ -4,6 +4,7 @@ id: angle-ranges
 title: Joint Motion Ranges, Positionality, and Directions
 sidebar_label: Joint Motion Ranges
 previous_page: comm-protocol
+next_page: hardware-modification
 ---
 # Joint Rotation Ranges and Directionality
 
